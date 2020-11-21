@@ -1,0 +1,30 @@
+#include<stdio.h>
+int main()
+{
+    double s,t,a,b,m,n,a_m[100000],a_n[100000];
+    int i,j;
+    int apples=0,oranges=0;
+    scanf("%lf %lf",&s,&t);
+    scanf("%lf %lf",&a,&b);
+    scanf("%lf %lf",&m,&n);
+    for(i=0;i<m;i++)
+    {
+        scanf("%lf",&a_m[i]);
+         a_m[i]=a_m[i]+a;
+         if(a_m[i]>=s && a_m[i]<=t)
+         {
+             apples++;
+         }
+    }
+    for(j=0;j<n;j++)
+    {
+        scanf("%lf",&a_n[j]);
+         a_n[j]=a_n[j]+b;
+         if(a_n[j]>=s && a_n[j]<=t)
+         {
+             oranges++;
+         }
+    }
+    printf("%d\n%d",apples,oranges);
+    
+}
