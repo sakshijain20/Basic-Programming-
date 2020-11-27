@@ -1,0 +1,25 @@
+//Where series is as follows: 1,1,2,3,5,8,13,21,34,55,89.. 
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int a=1,b=1,c=0,n;
+	cin>>n;
+	int sum=1;
+	
+	while(n>1)
+	{
+		if(b%2!=0)
+		{
+			sum=sum+b;
+			n--;
+		}
+		c=a+b;
+		a=b;
+		b=c;
+		
+	}
+	cout<<sum;
+}
