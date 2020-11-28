@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main() {
+	int arr[] = {200, 20,50,200};
+	int n=4,temp,prev=0,next=arr[0],i;
+	
+	for(i=1;i<n;i++) {
+		temp = prev>next?prev:next;
+		next = prev+arr[i];
+		prev = temp;	
+	}
+	
+	printf("%d",prev>next?prev:next);
+	
+	return 0;
+}
