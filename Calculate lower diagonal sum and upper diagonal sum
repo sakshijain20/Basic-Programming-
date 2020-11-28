@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-main(){
+int main(){
 	int a[3][3]={1,2,3,2,1,4,0,5,5};
 	int i,j,u=0,l=0;
 		
