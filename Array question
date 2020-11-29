@@ -7,7 +7,7 @@
 
 #include<iostream>
 using namespace std;
-void maxValue(int a[],int n){
+void prodArray(int a[],int n){
 	int i,left[n],right[n];
 	left[0]=1;
 	right[n-1]=1;
@@ -39,6 +39,6 @@ int main()
 	int a[]={10,3,5,6,2};
 	int n=sizeof(a)/sizeof(a[0]);
 	
-	maxValue(a,n);
+	prodArray(a,n);
 	return 0;
 }
