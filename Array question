@@ -1,0 +1,44 @@
+//Given an array arr[] of n integers, construct a Product Array prod[] (of same size)
+ //such that prod[i] is equal to the product of all the elements of arr[] except arr[i].
+ //Solve it without division operator and in O(n)
+ 
+//Input: - arr[] = {10, 3, 5, 6, 2}
+//Output: - prod[] = {180, 600, 360, 300, 900}
+
+#include<iostream>
+using namespace std;
+void maxValue(int a[],int n){
+	int i,left[n],right[n];
+	left[0]=1;
+	right[n-1]=1;
+	
+	for(i=1;i<n;i++)
+	{
+		left[i]=left[i-1]*a[i-1];
+	}
+	
+	for(i=n-2;i>=0;i--){
+		right[i]=right[i+1]*a[i+1];
+	}
+	
+	for(i=0;i<n;i++)
+	{
+		a[i]=left[i]*right[i];
+	}
+	for(i=0;i<n;i++)
+	{
+		cout<<a[i]<<" ";
+	}
+	
+	
+}
+
+int main()
+{
+	
+	int a[]={10,3,5,6,2};
+	int n=sizeof(a)/sizeof(a[0]);
+	
+	maxValue(a,n);
+	return 0;
+}
