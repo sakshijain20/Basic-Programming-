@@ -1,0 +1,79 @@
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct linknode
+{
+    int data;
+    struct linknode *next;
+}node;
+node *front,*rear;
+
+void enqueue();
+void dequeue();
+void display();
+int main(){
+    int ch;
+    while(1)
+    {
+        printf("\nEnter\n1: Enqueue\n2: Dequeue\n3: Display: ");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:
+                enqueue();
+            break;
+            case 2:
+                dequeue();
+            break;
+            case 3: 
+                display();
+            break;
+            default:
+                printf("\nWrong Choice\n");
+        }
+    }
+return 0;
+}
+
+void enqueue(){
+	int ele;
+	node *temp;
+	temp=(struct node*)malloc(sizeof(node*));
+	scanf("%d",&ele);
+	
+	temp->data=ele;
+	temp->next=NULL;
+	if(front==NULL && rear==NULL)
+	{
+		
+		front=rear=temp;
+	}
+	else{
+		rear->next=temp;
+		rear=rear->next;
+	}
+	
+}
+
+void dequeue()
+{
+	node *temp;
+	if(front==NULL)
+	{
+		printf("\nUnderflow\n");
+	}
+	else{
+		printf("Deleting %d",front->data);
+		front=front->next;
+	}
+    
+}
+void display()
+{
+	node* temp;
+    temp=front;
+    while(temp!=NULL)
+    {
+    	printf("%d ",temp->data);
+    	temp=temp->next;
+	}
+}
