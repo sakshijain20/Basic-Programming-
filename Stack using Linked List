@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct linknode
+{
+    int data;
+    struct linknode *next;
+}node;
+node *top;
+
+void push(int);
+void pop();
+void display();
+int main(){
+    int ch,ele;
+    while(1)
+    {
+        printf("\nEnter\n1: Push\n2: Pop\n3: Display: ");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:
+            	scanf("%d",&ele);
+                push(ele);
+            	break;
+            case 2:
+                pop();
+            	break;
+            case 3: 
+                display();
+            	break;
+            default:
+                printf("\nWrong Choice\n");
+        }
+    }
+return 0;
+}
+
+void push(int x)
+{
+	node* temp;
+	temp=(node*)malloc(sizeof(node));
+	temp->data=x;
+	temp->next=NULL;
+	
+	if(top==NULL)
+	{
+		top=temp;
+	}
+	else{
+		temp->next=top;
+		top=temp;
+	}
+	
+}
+void pop()
+{
+	if(top==NULL)
+	{
+		printf("\nUnderflow\n");
+	}
+	else
+	{
+		printf("Deleting %d",top->data);
+		top=top->next;
+	}
+
+	
+}
+void display()
+{
+	node *temp;
+	temp=top;
+	while(temp!=NULL)
+	{
+		printf("%d ",temp->data);
+		temp=temp->next;
+	}
+}
