@@ -1,0 +1,55 @@
+//Here dir=direction
+sr=starting row index
+er=ending row index
+sc=starting column index
+ec=ending column index
+
+
+#include<stdio.h>
+
+int main()
+{
+	int a[4][4]={1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8},i;
+	int dir=0,sr=0,er=3,sc=0,ec=3;
+	
+	while(sr<=er && sc<=ec)
+	{
+		if(dir==0)
+		{
+			for(i=sc;i<=ec;i++)
+			{
+				printf("%d ",a[sr][i]);
+			}
+			sr++;
+		}
+		else if(dir==1)
+		{
+			for(i=sr;i<=er;i++)
+			{
+				printf("%d ",a[i][ec]);
+			}
+			ec--;	
+		}
+		else if(dir==2)
+		{
+			for(i=ec;i>=sc;i--)
+			{
+				printf("%d ",a[er][i]);
+			}
+			er--;	
+			
+		}
+		else if(dir==3)
+		{
+			for(i=er;i>=sr;i--)
+			{
+				printf("%d ",a[i][sc]);
+			}
+			sc++;	
+		}
+		
+		dir=(dir+1)%4;
+	}
+	
+	
+}
