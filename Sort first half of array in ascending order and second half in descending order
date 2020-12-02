@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int a[]={9,8,7,6,5,1,2,3,4,5};
+	int j=0,temp,t;
+	
+	//size of array
+	t=sizeof(a)/sizeof(a[0]);
+	
+	//ascending order first half
+	for(int i=0;i<t/2;i++)
+	{
+		for(j=i+1;j<t/2;j++)
+		{
+			if(a[i]>a[j]){
+				temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+			}
+		}
+	}
+	
+	//second half in descending
+	for(int i=t/2;i<t;i++)
+	{
+		for(j=i+1;j<t;j++)
+		{
+			if(a[i]<a[j]){
+				temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+			}
+		}
+	}
+	
+  //printing the array
+	for(int i=0;i<t;i++)
+	{
+		cout<<a[i]<<" ";
+	}
+}
